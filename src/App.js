@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import AddUsers from "../src/Components/Users/AddUsers";
+import UserList from "../src/Components/Users/UsersList";
+import Card from "../src/Components/UI/Card";
 
-function App() {
+import "./App.css";
+
+const App = () => {
+  const [addUser, setAddUser] = useState([{ text: "Roseller", age: 23 }]);
+
+  const addUserHandler = (enteredUser, enteredAge) => {
+    setAddUser((prevUser) => {
+      const updatedUser = [...prevUser];
+      updatedUser.unshift({
+        text: enteredUser,
+        age: enteredAge,
+        id: Math.random().toString(),
+      });
+      return updatedUser;
+    });
+  };
+
+  const deleteUserHandler = (userId) => {
+    setAddUser(addUser.filter((user) => user.id !== userId));
+  };
+
+  console.log(addUser);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Card className="form">
+        <AddUsers onAddUser={addUserHandler} />
+      </Card>
+
+      <Card className="user-list">
+        <UserList onDeleteUser={deleteUserHandler} />
+      </Card>
+    </>
   );
-}
+};
 
 export default App;
