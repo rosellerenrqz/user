@@ -18,6 +18,10 @@ const AddUsers = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    if (userValue.trim().length === 0 || userAge.trim().length === 0) {
+      return;
+    }
+
     props.onAddUser(userValue, userAge);
     setUserValue("");
     setUserAge("");
