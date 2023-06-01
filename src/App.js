@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import AddUsers from "../src/Components/Users/AddUsers";
 import UserList from "../src/Components/Users/UsersList";
-import Card from "../src/Components/UI/Card";
-
-import "./App.css";
 
 const App = () => {
   const [addUser, setAddUser] = useState([{ text: "Roseller", age: 23 }]);
@@ -28,13 +25,8 @@ const App = () => {
 
   return (
     <>
-      <Card className="form">
-        <AddUsers onAddUser={addUserHandler} />
-      </Card>
-
-      <Card className="user-list">
-        <UserList onDeleteUser={deleteUserHandler} />
-      </Card>
+      <AddUsers onAddUser={addUserHandler} />
+      <UserList onDeleteUser={deleteUserHandler} />
     </>
   );
 };
