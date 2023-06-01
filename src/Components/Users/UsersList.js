@@ -4,8 +4,14 @@ import "./UserList.css";
 
 const UsersList = (props) => {
   return (
-    <Card className="form-list">
-      <li className="users-list">lists of users</li>
+    <Card className="users">
+      <ul>
+        {props.users.map((user) => (
+          <li key={user.id}>
+            {user.name} ({user.age} Years Old)
+          </li>
+        ))}
+      </ul>
     </Card>
   );
 };

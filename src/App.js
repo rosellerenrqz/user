@@ -3,17 +3,16 @@ import AddUsers from "../src/Components/Users/AddUsers";
 import UserList from "../src/Components/Users/UsersList";
 
 const App = () => {
-  const [addUser, setAddUser] = useState([{ text: "Roseller", age: 23 }]);
+  const [addUser, setAddUser] = useState([
+    // { name: "Roseller", age: 23, id: "1" },
+  ]);
 
   const addUserHandler = (enteredUser, enteredAge) => {
     setAddUser((prevUser) => {
-      const updatedUser = [...prevUser];
-      updatedUser.unshift({
-        text: enteredUser,
-        age: enteredAge,
-        id: Math.random().toString(),
-      });
-      return updatedUser;
+      return [
+        ...prevUser,
+        { name: enteredUser, age: enteredAge, id: Math.random().toString() },
+      ];
     });
   };
 
@@ -26,7 +25,7 @@ const App = () => {
   return (
     <>
       <AddUsers onAddUser={addUserHandler} />
-      <UserList onDeleteUser={deleteUserHandler} />
+      <UserList users={addUser} />
     </>
   );
 };
