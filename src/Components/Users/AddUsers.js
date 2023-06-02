@@ -18,10 +18,9 @@ const AddUsers = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const symbolRegex = /[`!@#$%^&*()/,.?":;'[]{}|<>]/;
-    if (symbolRegex.test(userValue)) {
-      // Display error or handle accordingly
-      console.log("Error: UserValue should not contain symbols.");
+    const symbolRegex = /^[A-Za-z][A-Za-z]*$/;
+    if (!symbolRegex.test(userValue)) {
+      console.log("Error: User input should not contain symbols and a number.");
       return;
     }
 
@@ -29,10 +28,17 @@ const AddUsers = (props) => {
       return;
     }
 
+    // const upperCasedValue = userValue
+    //   .split(" ")
+    //   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    //   .join(" ");
+
     const upperCasedValue = userValue
       .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
+
+    console.log(upperCasedValue);
 
     props.onAddUser(upperCasedValue, userAge);
     setUserValue("");
