@@ -22,8 +22,15 @@ const AddUsers = (props) => {
       return;
     }
 
+    const symbolRegex = /[`!@#$%^&*(),.?":{}|<>]/;
+    if (symbolRegex.test(userValue)) {
+      // Display error or handle accordingly
+      console.log("Error: UserValue should not contain symbols.");
+      return;
+    }
+
     const upperCasedValue =
-      userValue.charAt(0).toUpperCase() + userValue.slice(1);
+      userValue.charAt(0).toUpperCase() + userValue.slice(0);
 
     props.onAddUser(upperCasedValue, userAge);
     setUserValue("");
