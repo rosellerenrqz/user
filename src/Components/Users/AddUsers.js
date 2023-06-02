@@ -20,14 +20,14 @@ const AddUsers = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const symbolRegex = /^[A-Za-z][A-Za-z]*$/;
-    if (!symbolRegex.test(userValue)) {
-      setError(`Invalid input! Name should not contain numbers.`);
+    if (userValue.trim().length === 0 || userAge.trim().length === 0) {
+      setError(`Invalid input! You have to provide input`);
       return;
     }
 
-    if (userValue.trim().length === 0 || userAge.trim().length === 0) {
-      setError(` asdasd asdasdasdas`);
+    const symbolRegex = /^[A-Za-z][A-Za-z]*$/;
+    if (!symbolRegex.test(userValue)) {
+      setError(`Invalid input! Name should not contain numbers.`);
       return;
     }
 

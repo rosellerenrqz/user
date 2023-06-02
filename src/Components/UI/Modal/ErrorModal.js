@@ -1,23 +1,39 @@
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { Modal } from "antd";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const ErrorModal = (props) => {
-  const { content } = props;
-  const { confirm } = Modal;
+const ErrorModal = ({ content, onClose }) => {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (content) {
-      confirm({
-        title: "An error occurred!",
-        icon: <ExclamationCircleOutlined />,
-        content: content,
-        okText: "Okay",
-      });
+      setIsVisible(true);
     }
-  }, [confirm, content]);
+  }, [content]);
 
-  return null;
+  const handleOk = () => {
+    setIsVisible(false);
+    onClose();
+  };
+
+  const handleCancel = () => {
+    setIsVisible(false);
+    onClose();
+  };
+
+  return (
+    <Modal
+      title="An error occurred!"
+      visible={isVisible}
+      onOk={handleOk}
+      onCancel={handleCancel}
+      okText="Okay"
+      maskClosable={false}>
+      <p>
+        <ExclamationCircleOutlined /> {content}
+      </p>
+    </Modal>
+  );
 };
 
 export default ErrorModal;
