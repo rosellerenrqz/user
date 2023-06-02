@@ -22,7 +22,10 @@ const AddUsers = (props) => {
       return;
     }
 
-    props.onAddUser(userValue, userAge);
+    const upperCasedValue =
+      userValue.charAt(0).toUpperCase() + userValue.slice(1);
+
+    props.onAddUser(upperCasedValue, userAge);
     setUserValue("");
     setUserAge("");
   };
