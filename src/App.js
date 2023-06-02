@@ -3,7 +3,9 @@ import AddUsers from "../src/Components/Users/AddUsers";
 import UserList from "../src/Components/Users/UsersList";
 
 const App = () => {
-  const [addUser, setAddUser] = useState([]);
+  const [addUser, setAddUser] = useState([
+    // { name: "Roseller Enriquez", age: 23, id: "1" },
+  ]);
 
   const addUserHandler = (enteredUser, enteredAge) => {
     setAddUser((prevUser) => {
@@ -42,7 +44,7 @@ const App = () => {
       {addUser.length > 0 ? (
         <UserList users={addUser} onDelete={deleteUserHandler} />
       ) : (
-        [noUsers]
+        noUsers
       )}
     </>
   );

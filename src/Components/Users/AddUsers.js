@@ -69,8 +69,6 @@ const AddUsers = (props) => {
             <input
               id="age"
               type="number"
-              pattern="[0-9]*"
-              inputMode="numeric"
               value={userAge}
               onChange={userAgeHandler}
             />
