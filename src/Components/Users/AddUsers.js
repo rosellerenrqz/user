@@ -25,6 +25,11 @@ const AddUsers = (props) => {
       return;
     }
 
+    if (isNaN(userAge) || +userAge < 1 || +userAge > 99) {
+      setError("Please enter a valid Age (1-99)");
+      return;
+    }
+
     const symbolRegex = /^[A-Za-z][A-Za-z]*$/;
     if (!symbolRegex.test(userValue)) {
       setError(`Invalid input! Name should not contain numbers.`);
@@ -64,9 +69,8 @@ const AddUsers = (props) => {
             <input
               id="age"
               type="number"
-              step={1}
-              min={1}
-              max={99}
+              pattern="[0-9]*"
+              inputMode="numeric"
               value={userAge}
               onChange={userAgeHandler}
             />

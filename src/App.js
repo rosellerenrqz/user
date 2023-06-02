@@ -3,9 +3,7 @@ import AddUsers from "../src/Components/Users/AddUsers";
 import UserList from "../src/Components/Users/UsersList";
 
 const App = () => {
-  const [addUser, setAddUser] = useState([
-    // { name: "Roseller", age: 23, id: "1" },
-  ]);
+  const [addUser, setAddUser] = useState([]);
 
   const addUserHandler = (enteredUser, enteredAge) => {
     setAddUser((prevUser) => {
@@ -25,13 +23,15 @@ const App = () => {
     <p
       style={{
         textAlign: "center",
-        fontSize: "2rem",
+        padding: "1rem 0",
+        fontSize: "1.5rem",
         backgroundColor: "white",
         opacity: "80%",
         width: "40rem",
+        maxWidth: "90%",
         margin: "auto",
         borderRadius: "12px",
-        lineHeight: "4rem",
+        lineHeight: "2rem",
       }}>
       No Users found.
     </p>
