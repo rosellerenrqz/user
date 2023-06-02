@@ -18,19 +18,21 @@ const AddUsers = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (userValue.trim().length === 0 || userAge.trim().length === 0) {
-      return;
-    }
-
-    const symbolRegex = /[`!@#$%^&*(),.?":{}|<>]/;
+    const symbolRegex = /[`!@#$%^&*()/,.?":;'[]{}|<>]/;
     if (symbolRegex.test(userValue)) {
       // Display error or handle accordingly
       console.log("Error: UserValue should not contain symbols.");
       return;
     }
 
-    const upperCasedValue =
-      userValue.charAt(0).toUpperCase() + userValue.slice(0);
+    if (userValue.trim().length === 0 || userAge.trim().length === 0) {
+      return;
+    }
+
+    const upperCasedValue = userValue
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
 
     props.onAddUser(upperCasedValue, userAge);
     setUserValue("");
