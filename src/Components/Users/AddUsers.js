@@ -30,7 +30,7 @@ const AddUsers = (props) => {
       return;
     }
 
-    const symbolRegex = /^[A-Za-z][A-Za-z]*$/;
+    const symbolRegex = /^[A-Za-z\s]/;
     if (!symbolRegex.test(userValue)) {
       setError(`Invalid input! Name should not contain numbers.`);
       return;
