@@ -17,7 +17,7 @@ const App = () => {
   };
 
   const deleteUserHandler = (userId) => {
-    setAddUser(addUser.filter((user) => user.id !== userId));
+    setAddUser((prevUser) => prevUser.filter((user) => user.id !== userId));
   };
 
   console.log(addUser);
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <>
       <AddUsers onAddUser={addUserHandler} />
-      <UserList users={addUser} />
+      <UserList users={addUser} onDelete={deleteUserHandler} />
     </>
   );
 };

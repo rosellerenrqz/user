@@ -3,11 +3,14 @@ import Card from "../UI/Card";
 import "./UserList.css";
 
 const UsersList = (props) => {
+  const handleDelete = (id) => {
+    props.onDelete(id);
+  };
   return (
     <Card className="users">
       <ul>
         {props.users.map((user) => (
-          <li key={user.id}>
+          <li key={user.id} onClick={() => handleDelete(user.id)}>
             {user.name} ({user.age} Years Old)
           </li>
         ))}
