@@ -12,13 +12,14 @@
   display: block;
   width: 100%;
   margin-bottom: 1rem;
-  line-height: 1.5rem;
+  line-height: 2.3rem;
+  border-radius: 12px;
   border: 1px solid #ccc;
   padding: 0 0.5rem;
 }
 
 .form {
-  width: 35rem;
+  width: 40rem;
   max-width: 90%;
   margin: 3rem auto;
   background-color: #f8f8f8;

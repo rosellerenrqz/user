@@ -6,8 +6,9 @@ const UsersList = (props) => {
   const handleDelete = (id) => {
     props.onDelete(id);
   };
+
   return (
-    <Card className="users">
+    <Card className="users invalid">
       <ul>
         {props.users.map((user) => (
           <li key={user.id} onClick={() => handleDelete(user.id)}>

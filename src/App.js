@@ -4,7 +4,7 @@ import UserList from "../src/Components/Users/UsersList";
 
 const App = () => {
   const [addUser, setAddUser] = useState([
-    { name: "Roseller", age: 23, id: "1" },
+    // { name: "Roseller", age: 23, id: "1" },
   ]);
 
   const addUserHandler = (enteredUser, enteredAge) => {
@@ -21,11 +21,29 @@ const App = () => {
   };
 
   console.log(addUser);
-
+  const noUsers = (
+    <p
+      style={{
+        textAlign: "center",
+        fontSize: "2rem",
+        backgroundColor: "white",
+        opacity: "80%",
+        width: "40rem",
+        margin: "auto",
+        borderRadius: "12px",
+        lineHeight: "4rem",
+      }}>
+      No Users found.
+    </p>
+  );
   return (
     <>
       <AddUsers onAddUser={addUserHandler} />
-      <UserList users={addUser} onDelete={deleteUserHandler} />
+      {addUser.length > 0 ? (
+        <UserList users={addUser} onDelete={deleteUserHandler} />
+      ) : (
+        [noUsers]
+      )}
     </>
   );
 };
