@@ -3,10 +3,7 @@ import AddUsers from "../src/Components/Users/AddUsers";
 import UserList from "../src/Components/Users/UsersList";
 import SearchUser from "./Components/Users/SearchUser/SearchUser";
 const App = () => {
-  const [addUser, setAddUser] = useState([
-    // { name: "Roseller Enriquez", age: 23, id: "1" },
-  ]);
-
+  const [addUser, setAddUser] = useState([]);
   const addUserHandler = (enteredUser, enteredAge) => {
     setAddUser((prevUser) => {
       return [
@@ -21,6 +18,7 @@ const App = () => {
   };
 
   console.log(addUser);
+
   const noUsers = (
     <p
       style={{
@@ -40,8 +38,8 @@ const App = () => {
   );
   return (
     <>
-      <AddUsers onAddUser={addUserHandler} />
       <SearchUser onSearch={addUser} />
+      <AddUsers onAddUser={addUserHandler} />
       {addUser.length > 0 ? (
         <UserList users={addUser} onDelete={deleteUserHandler} />
       ) : (

@@ -8,21 +8,25 @@ const SearchUser = (props) => {
   const searchHandler = (e) => {
     setSearch(e.target.value);
   };
-  const filteredItems = props.onSearch.filter((item) =>
+  const filteredUsers = props.onSearch.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  console.log(filteredItems, "filteredItems");
+  console.log(filteredUsers, "filteredItems");
 
   const submitSearchHandler = (e) => {
     e.preventDefault();
+
+    setSearch("");
   };
   return (
-    <form className="search-form" onSubmit={submitSearchHandler}>
-      <label>Search User</label>
-      <input type="text" value={search} onChange={searchHandler} />
-      <Button>Search</Button>
-    </form>
+    <>
+      <form className="search-form" onSubmit={submitSearchHandler}>
+        <label>Search Users Name</label>
+        <input type="text" value={search} onChange={searchHandler} />
+        <Button>Search</Button>
+      </form>
+    </>
   );
 };
 

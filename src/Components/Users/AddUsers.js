@@ -30,7 +30,7 @@ const AddUsers = (props) => {
       return;
     }
 
-    const symbolRegex = /^[A-Za-z\s]/;
+    const symbolRegex = /^[A-Za-z\s]+$/;
     if (!symbolRegex.test(userValue)) {
       setError(`Invalid input! Name should not contain numbers.`);
       return;
@@ -72,9 +72,7 @@ const AddUsers = (props) => {
               value={userAge}
               onChange={userAgeHandler}
             />
-            <Button style={{}} onClick={submitHandler}>
-              Add User
-            </Button>
+            <Button onClick={submitHandler}>Add User</Button>
           </div>
         </form>
       </Card>
