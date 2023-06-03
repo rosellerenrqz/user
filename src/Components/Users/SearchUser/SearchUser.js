@@ -12,16 +12,17 @@ const SearchUser = (props) => {
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  console.log(filteredItems);
+  console.log(filteredItems, "filteredItems");
 
+  const submitSearchHandler = (e) => {
+    e.preventDefault();
+  };
   return (
-    <>
-      <form>
-        <label>Search User</label>
-        <input type="text" value={search} onChange={searchHandler} />
-        <Button>Search</Button>
-      </form>
-    </>
+    <form className="search-form" onSubmit={submitSearchHandler}>
+      <label>Search User</label>
+      <input type="text" value={search} onChange={searchHandler} />
+      <Button>Search</Button>
+    </form>
   );
 };
 
