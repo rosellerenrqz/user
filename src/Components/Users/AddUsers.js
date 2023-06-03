@@ -25,6 +25,11 @@ const AddUsers = (props) => {
       return;
     }
 
+    if (userValue.length < 4) {
+      setError(`Invalid input! Name length should atleast be (6-50)`);
+      return;
+    }
+
     if (isNaN(userAge) || +userAge < 1 || +userAge > 99) {
       setError("Please enter a valid Age (1-99)");
       return;
@@ -58,10 +63,12 @@ const AddUsers = (props) => {
       <Card className="form">
         <form onSubmit={submitHandler}>
           <div className="form-control">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Name (6-50 Characters)</label>
             <input
               id="name"
               type="text"
+              min={6}
+              max={50}
               value={userValue}
               onChange={userValueHandler}
             />
