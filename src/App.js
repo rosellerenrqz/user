@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AddUsers from "../src/Components/Users/AddUsers";
-import UserList from "../src/Components/Users/UsersList";
 import SearchUser from "./Components/Users/SearchUser/SearchUser";
 const App = () => {
   const [addUser, setAddUser] = useState([]);
@@ -39,12 +38,11 @@ const App = () => {
   return (
     <>
       <AddUsers onAddUser={addUserHandler} />
-      <SearchUser onSearch={addUser} onDelete={deleteUserHandler} />
-      {/* {addUser.length > 0 ? (
-        <UserList users={addUser} onDelete={deleteUserHandler} />
+      {addUser.length > 0 ? (
+        <SearchUser onSearch={addUser} onDelete={deleteUserHandler} />
       ) : (
         noUsers
-      )} */}
+      )}
     </>
   );
 };
