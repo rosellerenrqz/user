@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../UI/Button/Button";
+import UsersList from "../UsersList";
 import "./SearchUser.css";
 
 const SearchUser = (props) => {
@@ -8,6 +9,8 @@ const SearchUser = (props) => {
   const searchHandler = (e) => {
     setSearch(e.target.value);
   };
+
+  //Filtering users whenever search input change
   const filteredUsers = props.onSearch.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -26,6 +29,7 @@ const SearchUser = (props) => {
         <input type="text" value={search} onChange={searchHandler} />
         <Button>Search</Button>
       </form>
+      <UsersList users={filteredUsers} onDelete={props.onDelete} />
     </>
   );
 };

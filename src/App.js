@@ -38,13 +38,13 @@ const App = () => {
   );
   return (
     <>
-      <SearchUser onSearch={addUser} />
       <AddUsers onAddUser={addUserHandler} />
-      {addUser.length > 0 ? (
+      <SearchUser onSearch={addUser} onDelete={deleteUserHandler} />
+      {/* {addUser.length > 0 ? (
         <UserList users={addUser} onDelete={deleteUserHandler} />
       ) : (
         noUsers
-      )}
+      )} */}
     </>
   );
 };
