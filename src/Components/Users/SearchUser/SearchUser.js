@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "../../UI/Button/Button";
 import UsersList from "../UsersList";
 import "./SearchUser.css";
 
@@ -17,19 +16,41 @@ const SearchUser = (props) => {
 
   console.log(filteredUsers, "filteredItems");
 
-  const submitSearchHandler = (e) => {
-    e.preventDefault();
+  // const submitSearchHandler = (e) => {
+  //   e.preventDefault();
 
-    setSearch("");
-  };
+  //   setSearch("");
+  // };
+
+  const noUsers = (
+    <p
+      style={{
+        textAlign: "center",
+        padding: "1rem",
+        fontSize: "1.5rem",
+        backgroundColor: "white",
+        opacity: "80%",
+        width: "40rem",
+        maxWidth: "90%",
+        margin: "auto",
+        borderRadius: "12px",
+        lineHeight: "2rem",
+      }}>
+      No Users Found.
+    </p>
+  );
+
   return (
     <>
-      <form className="search-form" onSubmit={submitSearchHandler}>
+      <form className="search-form">
         <label>Search Users Name</label>
         <input type="text" value={search} onChange={searchHandler} />
-        <Button>Search</Button>
       </form>
-      <UsersList users={filteredUsers} onDelete={props.onDelete} />
+      {filteredUsers.length > 0 ? (
+        <UsersList users={filteredUsers} onDelete={props.onDelete} />
+      ) : (
+        noUsers
+      )}
     </>
   );
 };

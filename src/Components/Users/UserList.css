@@ -17,4 +17,10 @@
   padding: 0.5rem;
   font-weight: 600;
   line-height: 2rem;
+  cursor: pointer;
+}
+
+.users li:hover {
+  color: white;
+  background-color: red;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../UI/Card/Card";
 import "./UserList.css";
 
-const UsersList = (props, filteredUsers) => {
+const UsersList = (props) => {
   const handleDelete = (id) => {
     props.onDelete(id);
   };
