@@ -30,7 +30,8 @@ const ErrorModal = ({ content, onClose }) => {
           onOk={handleOk}
           onCancel={handleCancel}
           okText="Okay"
-          maskClosable={false}
+          maskClosable={true}
+          keyboard={true}
           getContainer={() => document.getElementById("modal")}>
           <p style={{ fontSize: "1rem" }}>
             <ExclamationCircleOutlined style={{ color: "#CD1818" }} /> {content}
