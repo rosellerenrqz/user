@@ -16,8 +16,6 @@ const App = () => {
     setAddUser((prevUser) => prevUser.filter((user) => user.id !== userId));
   };
 
-  console.log(addUser);
-
   const noUsers = (
     <p
       style={{

@@ -29,8 +29,8 @@ const ErrorModal = ({ content, onClose }) => {
       onCancel={handleCancel}
       okText="Okay"
       maskClosable={false}>
-      <p>
-        <ExclamationCircleOutlined /> {content}
+      <p style={{ fontSize: "1rem" }}>
+        <ExclamationCircleOutlined style={{ color: "#CD1818" }} /> {content}
       </p>
     </Modal>
   );

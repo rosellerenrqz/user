@@ -14,14 +14,6 @@ const SearchUser = (props) => {
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  console.log(filteredUsers, "filteredItems");
-
-  // const submitSearchHandler = (e) => {
-  //   e.preventDefault();
-
-  //   setSearch("");
-  // };
-
   const noUsers = (
     <p
       style={{

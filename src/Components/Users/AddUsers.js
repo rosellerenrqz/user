@@ -21,12 +21,12 @@ const AddUsers = (props) => {
     e.preventDefault();
 
     if (userValue.trim().length === 0 || userAge.trim().length === 0) {
-      setError(`Invalid input! You have to provide input`);
+      setError(`Invalid Input! You have to provide input`);
       return;
     }
 
     if (userValue.length < 4 || userValue.length > 50) {
-      setError(`Invalid input! Name length should atleast be (6-50)`);
+      setError(`Invalid Age! Name length should atleast be (6-50)`);
       return;
     }
 
@@ -37,7 +37,7 @@ const AddUsers = (props) => {
 
     const symbolRegex = /^[A-Za-z\s]+$/;
     if (!symbolRegex.test(userValue)) {
-      setError(`Invalid input! Name should not contain numbers or symbols.`);
+      setError(`Invalid Input! Name should not contain numbers.`);
       return;
     }
 
@@ -45,8 +45,6 @@ const AddUsers = (props) => {
       .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
-
-    console.log(upperCasedValue);
 
     props.onAddUser(upperCasedValue, userAge);
     setUserValue("");
