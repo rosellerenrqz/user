@@ -34,14 +34,14 @@ const App = () => {
     </p>
   );
   return (
-    <>
+    <React.Fragment>
       <AddUsers onAddUser={addUserHandler} />
       {addUser.length > 0 ? (
         <SearchUser onSearch={addUser} onDelete={deleteUserHandler} />
       ) : (
         noUsers
       )}
-    </>
+    </React.Fragment>
   );
 };
 

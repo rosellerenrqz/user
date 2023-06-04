@@ -33,7 +33,7 @@ const SearchUser = (props) => {
   );
 
   return (
-    <>
+    <React.Fragment>
       <form className="search-form">
         <label>Search Users Name</label>
         <input type="text" value={search} onChange={searchHandler} />
@@ -43,7 +43,7 @@ const SearchUser = (props) => {
       ) : (
         noUsers
       )}
-    </>
+    </React.Fragment>
   );
 };
 

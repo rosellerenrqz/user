@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../UI/Button/Button";
 import Card from "../UI/Card/Card";
 import ErrorModal from "../UI/Modal/ErrorModal";
+
 import "./AddUsers.css";
 
 const AddUsers = (props) => {
@@ -56,7 +57,7 @@ const AddUsers = (props) => {
   };
 
   return (
-    <>
+    <React.Fragment>
       {error && <ErrorModal content={error} onClose={closeModal} />}
       <Card className="form">
         <form onSubmit={submitHandler}>
@@ -81,7 +82,7 @@ const AddUsers = (props) => {
           </div>
         </form>
       </Card>
-    </>
+    </React.Fragment>
   );
 };
 
