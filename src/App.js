@@ -37,7 +37,11 @@ const App = () => {
     <React.Fragment>
       <AddUsers onAddUser={addUserHandler} />
       {addUser.length > 0 ? (
-        <SearchUser onSearch={addUser} onDelete={deleteUserHandler} />
+        <SearchUser
+          onSearch={addUser}
+          onDelete={deleteUserHandler}
+          noUsers={noUsers}
+        />
       ) : (
         noUsers
       )}

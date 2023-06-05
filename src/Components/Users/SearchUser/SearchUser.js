@@ -14,24 +14,6 @@ const SearchUser = (props) => {
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const noUsers = (
-    <p
-      style={{
-        textAlign: "center",
-        padding: "1rem",
-        fontSize: "1.5rem",
-        backgroundColor: "white",
-        opacity: "80%",
-        width: "40rem",
-        maxWidth: "90%",
-        margin: "auto",
-        borderRadius: "12px",
-        lineHeight: "2rem",
-      }}>
-      No Users Found.
-    </p>
-  );
-
   return (
     <React.Fragment>
       <form className="search-form">
@@ -41,7 +23,7 @@ const SearchUser = (props) => {
       {filteredUsers.length > 0 ? (
         <UsersList users={filteredUsers} onDelete={props.onDelete} />
       ) : (
-        noUsers
+        props.noUsers
       )}
     </React.Fragment>
   );
